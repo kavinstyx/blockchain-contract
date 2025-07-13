@@ -7,8 +7,7 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json from server/
 COPY server/package.json server/package-lock.json ./
 
-# Install dependencies
-RUN npm ci
+RUN npm install --no-audit --no-fund
 
 # Copy the rest of the server source code
 COPY server/src ./src
