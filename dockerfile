@@ -13,8 +13,8 @@ RUN npm ci
 # Copy the rest of the server source code
 COPY server/src ./src
 
-# Expose port 5000 (or whatever port your app uses)
-EXPOSE 5000
+# Expose port 3000 (or whatever port your app uses)
+EXPOSE 3000
 
 # Start the application
 CMD ["node", "src/index.js"]
