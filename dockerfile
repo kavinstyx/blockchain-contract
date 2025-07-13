@@ -4,17 +4,17 @@ FROM node:18
 # Set working directory inside container
 WORKDIR /usr/src/app
 
-# Copy package.json and lock file
-COPY package*.json ./
+# Copy package.json and package-lock.json from server/
+COPY server/package.json server/package-lock.json ./
 
 # Install dependencies
 RUN npm ci
 
-# Copy the rest of the application code
-COPY . .
+# Copy the rest of the server source code
+COPY server/src ./src
 
 # Expose port 5000 (or whatever port your app uses)
-EXPOSE 3000
+EXPOSE 5000
 
 # Start the application
-CMD ["npm", "start"]
+CMD ["node", "src/index.js"]
